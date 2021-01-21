@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "cat";
+    src: url(./font/YuWeiShuFaXingShuFanTi-1.ttf);
+}
+@font-face {
+    font-family: "time";
+    src: url(./font/MoMoLaoWuShouJi-0-2.ttf);
+}
+@font-face {
+    font-family: "cnewyear";
+    src: url(./font/MoMoSuiXiangTiXi-2.ttf);
+}
+@font-face {
+    font-family: "chinese";
+    src: url(./font/HanyiSentySpringBrush.ttf);
+}
