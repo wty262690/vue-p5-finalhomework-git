@@ -11,24 +11,32 @@
   <p>戰</p>
   <p>勝</p>
   <p>我</p></button>
-  <audio src="../sound/ranbow_newyear.mp3"></audio>
+  <audio controls>
+  <source src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3" type="audio/ogg">
+  <source src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3" type="audio/mpeg">
+</audio>
+<audio controls>
+  <source src="https://raw.githubusercontent.com/wty262690/vue-p5-finalhomework-git/main/src/sound/ranbow_newyear.mp3" type="audio/mpeg">
+</audio>
   <div class="container">
     <div class="Canvas"></div>
     </div>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   data() {  
     
     return {
-      
+    trackUrl : ['../sound/ranbow_newyear.mp3',],  
     }
+    
   },
 methods: {
-    playSound (sound) {
+ playSound (sound) {
       if(sound) {
-        var audio = new Audio(require('../sound/ranbow_newyear.mp3'));
+        var audio = new Audio(require(trackUrl));
         audio.play();
       }
     }
