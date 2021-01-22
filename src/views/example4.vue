@@ -16,7 +16,7 @@
             </div>
             <div id="player-content">
                 <div id="album-art">
-                    <img src="" class="active" id="_1">
+                    <img src="https://raw.githubusercontent.com/wty262690/vue-p5-finalhomework-git/main/src/photo/spring.png" class="active" id="_1">
                 </div>
                 <div id="player-controls">
                     <div class="control">
