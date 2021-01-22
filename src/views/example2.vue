@@ -1,195 +1,145 @@
 <template>
-  <div class="container">
-    <div class="p5Canvas"></div>
-  </div>
+<span unselectable="on" >
+  <div id="demo"></div>
     <el-calendar v-model="value">
       <template #dateCell="{data}">
         <p :class="data.isSelected ? 'is-selected' : ''">
           {{ data.day.split('-').slice(1).slice(1).join('m') }}
         </p>
-        <p class="pick">{{ data.isSelected ? 'ฅ ฅ' : '' }}</p>
+        <p class="pick">{{ data.isSelected ? 'ฅ ฅ': '' }}</p>
       </template>
     </el-calendar>
+</span>
 </template>
 
 
 <script>
-import P5 from 'p5';
-  export default {
+    export default {
     data() {
+      
       return {
         value: new Date(),
-        p5Canvas: null,
       }
     },
-    created() {
-    const sketch = p5 => {
-        let snowflakes = []; 
-        let precanvas;
-        let f = 0;
-        let r = 0;
-        let ax = 0;
-        let ay = 0;            
-        let x = 0;
-        let y = 0;
-        let spring = 0.5;
-        let friction = 0.5;
-        let a = 0;
-        let size = 45;
-        let diff = size/8;
-        let distance = 10;
-        let enter=false;
-        let orx=x;
-        let ory=y;
-        let num=0;
-
-        p5.setup = () => {
-            p5.createCanvas(window.innerWidth-10,window.innerHeight-10);
-            precanvas=p5.createGraphics(window.innerWidth-10,window.innerHeight-10);
-            precanvas.clear();
-        };
-
-        p5.draw = () => {
-          let j=p5.random(0,50);
-          p5.background(0);
-          let t = p5.frameCount / 60; // update time
-            for (let i = 0; i < 1; i++) {
-            snowflakes.push(new snowflake()); // append snowflake object
-          } 
-          let oldR = r;
-          if(p5.mouseIsPressed) {
-            let mX = p5.mouseX;
-            let mY = p5.mouseY;
-            if(!f) {
-              f = 1;
-              x = mX;
-              y = mY;
-              orx=x;
-              ory=y;
-            }
-            ax += ( mX - x ) * spring;
-            ay += ( mY - y ) * spring;
-            ax *= friction;
-            ay *= friction;
-            a += p5.sqrt( ax*ax + ay*ay ) - a;
-            a *= 0.6;
-            r = size - a;
-            for(let  i = 0; i < distance; ++i ) {
-              if(j>=1 && j<=3.5){
-                precanvas.fill(255);
-                precanvas.noStroke();
-                precanvas.rect(0,0, p5.width, p5.height); 
-
-              }
-              if (j>=0.3 && j<=2){
-                  enter=true;
-                  precanvas.fill(192,44,56);
-                  precanvas.noStroke();
-                  precanvas.rect(0,0,p5.width, p5.height);       
-              }
-              let oldX = x;
-              let oldY = y;
-              x += ax / distance;
-              y += ay / distance;
-              oldR += (( r - oldR ) / distance);
-              if(oldR < 1) oldR = 1;
-              precanvas.stroke(192,44,56);
-              precanvas.strokeWeight( oldR+diff );
-              precanvas.line( x, y, oldX, oldY );
-              precanvas.strokeWeight( oldR );
-              precanvas.line( x+diff*2, y+diff*2, oldX+diff*2, oldY+diff*2 );
-              precanvas.line( x-diff, y-diff, oldX-diff, oldY-diff );
-              precanvas.fill(0,2); 
-              precanvas.noStroke();
-              precanvas.rect(0,0,p5.width, p5.height);
-
-            }
-          }
-          else if(f) {
-            ax = ay = f = 0;
-          }
-          else {
-            precanvas.fill(0,7); 
-            precanvas.noStroke();
-            precanvas.rect(0,0,p5.width, p5.height);
-          }
-            p5.image(precanvas,0,0);
+    created(){
+      
+      var countDownDate = new Date("Feb 10, 2021 0:0:0").getTime();
             
-            if (j>=0 && j<=0.3){
-              p5.fill(192,44,56);
-              p5.noStroke();
-              p5.rect(0,0, p5.width,p5.height); 
-          }
+      // Update the count down every 1 second
+      var x = setInterval(function() {
 
-            for (let flake of snowflakes) {
-            flake.update(t);
-            flake.display();
-          }
-        };
-        function snowflake() {
-          // initialize coordinates
-          this.posX = 0;
-          this.posY = p5.random(-50, 0);
-          this.initialangle = p5.random(0, 2 * p5.PI);
-          this.size = p5.random(2, 5);
+      // Get today's date and time
+      var now = new Date().getTime();
 
-          // radius of snowflake spiral
-          // chosen so the snowflakes are uniformly spread out in area
-          this.radius = p5.sqrt(p5.random(p5.pow(p5.width / 2, 2)));
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
 
-          this.update = function(time) {
-            // x position follows a circle
-            let w = 0.09; // angular speed
-            let angle = w * time + this.initialangle;
-            this.posX = p5.width / 2 + this.radius * p5.sin(angle);
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // different size snowflakes fall at slightly different y speeds
-            this.posY += p5.pow(this.size, 1.5);
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = days + " : " + hours + " : "
+      + minutes + " : " + seconds ;
 
-            // delete snowflake if past end of screen
-            if (this.posY > p5.height) {
-              let index = snowflakes.indexOf(this);
-              snowflakes.splice(index, 1);
-            }
-          };
-
-          this.display = function() {
-            p5.noStroke();
-            p5.fill(225);
-            p5.circle(this.posX, this.posY, this.size);
-          };
-        }
-    }
-
-
-    this.p5Canvas = new P5(sketch, 'p5Canvas');
+      // If the count down is finished, write some text
+      if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+      }, 1000);
   },
-  unmounted () {
-    this.p5Canvas = null;
-  },
-  }
+}
 </script>
 
 
 <style>
+.block{
+  position:absolute;
+  height:100vh;
+  width:20vw;
+}
 body{
   margin:0;
-  background-color:rgba(151, 151, 151, 0);
+  background-color:black;
+}
+p{
+  margin-bottom: 0;
+}
+#app {
+  margin:0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color:rgb(213, 228, 148);
+  position:absolute;
+}
+html{
+  margin:0;
+  background-color:rgba(253, 36, 36, 0);
 }
 .el-calendar{
   background-color:rgba(0, 0, 0, 0);
+  width:1000px;
+  text-align: center;
 }
 .el-button{
   border:0px;
+  background-color:rgba(0, 0, 0, 0);
   color:rgb(213, 228, 148);
 }
+.el-calendar__header{
+  border-bottom:0px;
+}
 .is-selected {
-  color: #ff3e3e;
+  color: #ffffff;
 }
 .pick{
   text-align: right;
-  font-size:20px;
+  font-size:40px;
+  margin:0;
 }
+.el-button:focus, .el-button:hover{
+  background-color:rgba(255, 255, 255, 0);
+  color:rgb(213, 228, 148);
+  border-bottom: 1.5px solid;
+}
+#demo{
+  width:100%;
+  text-align:center;
+  font-family: "time";
+  padding-top:10vh;
+  font-size:100px;
+}
+.el-calendar-table td{
+  border-radius: 15%;
+  border-color:rgb(184, 56, 77);
+  border-left:0px;
+  border-top:0px;
+  border-right:0px;
+  border-bottom:0px;
+}
+.el-calendar-table tr:first-child td{
+  border-top:0px;
+}
+.el-calendar-table tr td:first-child{
+  border-left:0px;
+}
+.el-calendar-table td.is-selected{
 
-
+  background-color:rgb(184, 56, 77);
+}
+ .el-calendar-table .el-calendar-day:hover{
+  background-color:rgb(184, 56, 77);
+   border-radius: 15%;
+ }
+ .el-backtop, .el-calendar-table td.is-today{
+   color:white;
+ }
+ .el-calendar-table:not(.is-range) td.next, .el-calendar-table:not(.is-range) td.prev{
+   color:rgb(104, 110, 78);
+ }
 </style>

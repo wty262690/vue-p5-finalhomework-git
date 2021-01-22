@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <div class="p5Canvas"></div>
-  </div>
   <span unselectable="on" >
-  <div id="demo"></div>
   <div class="txt">
     <div class="word word1">薛</div>
     <div class="word">丁</div>
@@ -26,17 +24,17 @@
     <span class="hamburger hamburger-2"></span>
     <span class="hamburger hamburger-3"></span>
   </label>
-  <router-link to="/example2" class="menu-item item">指南</router-link>
+  <router-link to="/example4" class="menu-item item">指南</router-link>
   <router-link to="/example3" class="menu-item item">自救</router-link>
-  <router-link to="/example4" class="menu-item item">春節</router-link>
+  <router-link to="/example2" class="menu-item item">春節</router-link>
   <router-view></router-view>
 </nav>
 </span>
+</div>
 </template>
 
 <script >
 import P5 from 'p5';
-import './time.js';
 
 export default {
   data() {
@@ -209,18 +207,13 @@ main {
   margin: 0;
   width: 90vw;
 }
-#demo{
-  width:100%;
-  font-family: "time";
-  padding-top:10vh;
-  font-size:100px;
-}
 .txt{
   font-family: "cat";
   font-size:40px;
   width:100vw;
-  padding-top:15vh;
+  padding-top:20vh;
   align-self: center;
+  color:rgb(213, 228, 148);
 }
 .word1{
   font-size:55px;

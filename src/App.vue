@@ -14,7 +14,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 @import './font.css';
 @import './menu.css';
 
@@ -23,7 +23,6 @@ body{
   background-color:black;
 }
 #app {
-  
   margin:0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
