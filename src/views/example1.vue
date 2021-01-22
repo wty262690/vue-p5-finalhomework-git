@@ -26,9 +26,9 @@
     <span class="hamburger hamburger-2"></span>
     <span class="hamburger hamburger-3"></span>
   </label>
-  <router-link to="/example2" class="menu-item item">Go to Foo</router-link>
-  <a href="/test2" class="menu-item"> <p class="item">自救</p> </a>
-  <a href="/test2" class="menu-item"> <p class="item">指南</p> </a>
+  <router-link to="/example2" class="menu-item item">指南</router-link>
+  <router-link to="/example3" class="menu-item item">自救</router-link>
+  <router-link to="/example4" class="menu-item item">春節</router-link>
   <router-view></router-view>
 </nav>
 </span>
@@ -182,34 +182,6 @@ export default {
             p5.fill(225);
             p5.circle(this.posX, this.posY, this.size);
           };
-          
-var countDownDate = new Date("Feb 10, 2021 0:0:0").getTime();
-  
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-// Get today's date and time
-var now = new Date().getTime();
-
-// Find the distance between now and the count down date
-var distance = countDownDate - now;
-
-// Time calculations for days, hours, minutes and seconds
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-// Display the result in the element with id="demo"
-document.getElementById("demo").innerHTML = days + " : " + hours + " : "
-+ minutes + " : " + seconds ;
-
-// If the count down is finished, write some text
-if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-}
-}, 1000);
         }
     }
 

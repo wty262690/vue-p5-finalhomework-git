@@ -1,15 +1,20 @@
 <template>
-<div id="app">
-  <router-view/>
-</div>
+    <router-view/>
 
 </template>
 
 <script>
+export default {
+  data() {
+          return {
+          }
+  },
+  
+}
 
 </script>
 
-<style>
+<style scoped>
 @import './font.css';
 @import './menu.css';
 
