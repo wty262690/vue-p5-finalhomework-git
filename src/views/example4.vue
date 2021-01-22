@@ -1,9 +1,5 @@
 <template>
-<!-- Tracks used in this music/audio player application are free to use. I downloaded them from Soundcloud and NCS websites. I am not the owner of these tracks. -->
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/970557799%3Fsecret_token%3Ds-nuO655gDgop&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-150587633" title="WU" target="_blank" style="color: #cccccc; text-decoration: none;">WU</a> · <a href="https://soundcloud.com/user-150587633/ranbow-newyear/s-nuO655gDgop" title="Ranbow Newyear" target="_blank" style="color: #cccccc; text-decoration: none;">Ranbow Newyear</a></div>
     <div id="app-cover">
-        <div id="bg-artwork"></div>
-        <div id="bg-layer"></div>
         <div id="player">
             <div id="player-track">
                 <div id="album-name"></div>
@@ -20,13 +16,7 @@
             </div>
             <div id="player-content">
                 <div id="album-art">
-                  
                     <img src="" class="active" id="_1">
-                    <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_2.jpg" id="_2">
-                    <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_3.jpg" id="_3">
-                    <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_4.jpg" id="_4">
-                    <img src="https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_5.jpg" id="_5">
-                    <div id="buffer-box">Buffering ...</div>
                 </div>
                 <div id="player-controls">
                     <div class="control">
@@ -71,8 +61,8 @@ $(function()
     sArea = $('#s-area'), seekBar = $('#seek-bar'), trackTime = $('#track-time'), insTime = $('#ins-time'), sHover = $('#s-hover'), 
     playPauseButton = $("#play-pause-button"),  i = playPauseButton.find('i'), tProgress = $('#current-time'), tTime = $('#track-length'), 
     seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0, buffInterval = null, tFlag = false,
-    albums = ['Dawn','Me & You','Electro Boy','Home','Proxy (Original Mix)'], 
-    trackNames = ['Skylike - Dawn','Alex Skrindo - Me & You','Kaaze - Electro Boy','Jordan Schor - Home','Martin Garrix - Proxy'],
+    albums = ['春節自救指南'], 
+    trackNames = ['上海彩虹室內合唱團'],
     albumArtworks = ['_1','_2','_3','_4','_5'],
     trackUrl = ['https://raw.githubusercontent.com/wty262690/vue-p5-finalhomework-git/main/src/sound/ranbow_newyear.mp3','https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/1.mp3','https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/3.mp3','https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/4.mp3','https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/5.mp3'], playPreviousTrackButton = $('#play-previous'), playNextTrackButton = $('#play-next'), currIndex = -1;
 
@@ -317,46 +307,14 @@ body
 {
     font-family: Helvetica, Arial;
     margin: 0;
-    background-color: #ffeff5;
 }
 
 #app-cover
 {
     position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
+    top: 50vh;
     width: 430px;
     height: 100px;
-    margin: -4px auto;
-}
-
-#bg-artwork
-{
-    position: fixed;
-    top: -30px;
-    right: -30px;
-    bottom: -30px;
-    left: -30px;
-    background-image: url("https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
-    filter: blur(40px);
-    -webkit-filter: blur(40px);
-    z-index: 1;
-}
-
-#bg-layer
-{
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    opacity: 0.51;
-    z-index: 2;
 }
 
 #player
@@ -373,7 +331,6 @@ body
     right: 15px;
     left: 15px;
     padding: 13px 22px 10px 184px;
-    background-color: #fff7f7;
     border-radius: 15px 15px 0 0;
     transition: 0.3s ease top;
     z-index: 1;
@@ -386,20 +343,21 @@ body
 
 #album-name
 {
-    color: #54576f;
+    color:rgb(213, 228, 148);
     font-size: 17px;
     font-weight: bold;
 }
 
 #track-name
 {
-    color: #acaebd;
+    color: rgb(179, 189, 135);
     font-size: 13px;
-    margin: 2px 0 13px 0;
+    margin: 0px 0 2px 0;
 }
 
 #track-time
 {
+    font-family:"english";
     height: 12px;
     margin-bottom: 3px;
     overflow: hidden;
@@ -426,7 +384,7 @@ body
 
 #track-time.active #current-time, #track-time.active #track-length
 {
-    color: #f86d92;
+    color: rgb(213, 228, 148);
     background-color: transparent;
 }
 
@@ -478,7 +436,7 @@ body
     bottom: 0;
     left: 0;
     width: 0;
-    background-color: #fd6d94;
+    background-color:rgb(213, 228, 148);
     transition: 0.2s ease width;
     z-index: 1;
 }
@@ -487,8 +445,7 @@ body
 {
     position: relative;
     height: 100%;
-    background-color: #fff;
-    box-shadow: 0 30px 80px #656565;
+    background-color: rgb(213, 228, 148);
     border-radius: 15px;
     z-index: 2;
 }
@@ -502,8 +459,7 @@ body
     margin-left: 40px;
     transform: rotateZ(0);
     transition: 0.3s ease all;
-    box-shadow: 0 0 0 10px #fff;
-    border-radius: 50%;
+    border-radius: 30%;
     overflow: hidden;
 }
 
@@ -523,9 +479,9 @@ body
     width: 20px;
     height: 20px;
     margin: -10px auto 0 auto;
-    background-color: #d6dee7;
+    background-color: rgb(213, 228, 148);
     border-radius: 50%;
-    box-shadow: inset 0 0 0 2px #fff;
+    box-shadow: inset 0 0 0 2px rgb(0, 0, 0);
     z-index: 2;
 }
 
