@@ -41,10 +41,9 @@ export default {
     
     return {
       p5Canvas: null,
-
     }
   },
-  created() {
+  mounted() {
     const sketch = p5 => {
         let snowflakes = []; 
         let precanvas;
@@ -186,9 +185,6 @@ export default {
 
     this.p5Canvas = new P5(sketch, 'p5Canvas');
   },
-  unmounted () {
-    this.p5Canvas = null;
-  },
 }
 </script>
 
@@ -203,10 +199,6 @@ export default {
   z-index: 9999;
 }
 
-main {
-  margin: 0;
-  width: 90vw;
-}
 .txt{
   font-family: "cat";
   font-size:40px;

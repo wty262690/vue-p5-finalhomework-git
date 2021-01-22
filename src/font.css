@@ -14,3 +14,7 @@
     font-family: "chinese";
     src: url(./font/HanyiSentySpringBrush.ttf);
 }
+@font-face {
+    font-family: "english";
+    src: url(./font/Staatliches-Regular.ttf);
+}

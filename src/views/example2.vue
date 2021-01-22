@@ -56,15 +56,6 @@
 
 
 <style>
-.block{
-  position:absolute;
-  height:100vh;
-  width:20vw;
-}
-body{
-  margin:0;
-  background-color:black;
-}
 p{
   margin-bottom: 0;
 }
@@ -77,17 +68,17 @@ p{
   color:rgb(213, 228, 148);
   position:absolute;
 }
-html{
-  margin:0;
-  background-color:rgba(253, 36, 36, 0);
-}
 .el-calendar{
+  letter-spacing:3px;
+  font-family: "english";
   background-color:rgba(0, 0, 0, 0);
   width:1000px;
   text-align: center;
 }
 .el-button{
   border:0px;
+  border-bottom:1.5px solid;
+  border-color:rgb(20, 20, 20,0);
   background-color:rgba(0, 0, 0, 0);
   color:rgb(213, 228, 148);
 }
@@ -110,9 +101,13 @@ html{
 #demo{
   width:100%;
   text-align:center;
-  font-family: "time";
+  font-family: "english";
   padding-top:10vh;
   font-size:100px;
+}
+.el-calendar__title{
+  font-size:18px;
+  color:rgb(213, 228, 148);
 }
 .el-calendar-table td{
   border-radius: 15%;
