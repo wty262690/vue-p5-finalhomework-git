@@ -24,6 +24,7 @@
     <span class="hamburger hamburger-2"></span>
     <span class="hamburger hamburger-3"></span>
   </label>
+  <router-link to="/example5" class="menu-item item">help</router-link>
   <router-link to="/example4" class="menu-item item">指南</router-link>
   <router-link to="/example3" class="menu-item item">自救</router-link>
   <router-link to="/example2" class="menu-item item">春節</router-link>
