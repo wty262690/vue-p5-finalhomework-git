@@ -1,4 +1,5 @@
 <template>
+<span unselectable="on" >
   <div class="btn">  
     <p class="no">沒</p>
     <p class="people">人</p>
@@ -45,6 +46,7 @@
             </div>
         </div>
     </div>
+    </span>
 </template>
 
 <script>
