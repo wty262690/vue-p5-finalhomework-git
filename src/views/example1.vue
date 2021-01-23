@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="p5Canvas"></div>
+    <canvas class="p5Canvas"></canvas>
   <span unselectable="on" >
   <div class="txt">
     <div class="word word1">薛</div>
@@ -40,7 +40,6 @@ export default {
   data() {
     
     return {
-      p5Canvas: null,
     }
   },
   mounted() {
@@ -195,17 +194,20 @@ export default {
   width:100vw;
 }
 .p5Canvas {
+  position:fixed;
   width: 100%;
-  z-index: 9999;
+  z-index: 1;
 }
 
 .txt{
+  position:absolute;
   font-family: "cat";
   font-size:40px;
   width:100vw;
   padding-top:20vh;
   align-self: center;
   color:rgb(213, 228, 148);
+  z-index:9999;
 }
 .word1{
   font-size:55px;

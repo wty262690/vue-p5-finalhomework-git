@@ -7,7 +7,7 @@
   height: 40px;
   position: absolute;
   color: white;
-  top:14vh;
+  top:80vh;
   transform: translate3d(0, 0, 0);
   transition: transform ease-out 200ms;
 }
@@ -57,12 +57,13 @@
 }
 
 .menu {
-  position: relative;
+  position:absolute;
   width:100vw;
   margin:0;
   height: 20px;
   box-sizing: border-box;
   font-size: 20px;
+  z-index: 3;
 }
 .menu-item:nth-child(3) {
   transition-duration: 190ms;

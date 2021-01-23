@@ -69,10 +69,14 @@ p{
   position:absolute;
 }
 .el-calendar{
+  position:relative;
+  z-index:2;
   letter-spacing:3px;
   font-family: "english";
   background-color:rgba(0, 0, 0, 0);
-  width:1000px;
+  width:80vw;
+  left:10vw;
+  top:-30px;
   text-align: center;
 }
 .el-button{
@@ -99,11 +103,14 @@ p{
   border-bottom: 1.5px solid;
 }
 #demo{
+  left:10vw;
+  position: relative;
   width:100%;
   text-align:center;
   font-family: "english";
   padding-top:10vh;
   font-size:100px;
+  z-index:3;
 }
 .el-calendar__title{
   font-size:18px;
