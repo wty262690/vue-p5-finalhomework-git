@@ -18,6 +18,7 @@
 如您曾接受過全家靈魂深處的拷問、曾被親戚的超負荷關愛電磁炮所擊中，請務必服此良藥。
     </p>
     </div>
+    <img src="https://raw.githubusercontent.com/wty262690/vue-p5-finalhomework-git/main/src/photo/%E6%98%A5%E7%AF%80%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97test.png">
 </template>
 
 
